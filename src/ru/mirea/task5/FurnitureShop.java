@@ -1,18 +1,12 @@
 package ru.mirea.task5;
 
 public class FurnitureShop {
-        private String type;
-        private String color;
-        private String material;
-        public FurnitureShop (String type, String color, String material)
+        protected String color;
+        protected String material;
+        public FurnitureShop ( String color, String material)
         {
-            this.type = type;
             this.color = color;
             this.material = material;
-        }
-
-        public void setType(String type) {
-            this.type = type;
         }
 
         public void setColor(String color) {
@@ -23,10 +17,6 @@ public class FurnitureShop {
             this.material = material;
         }
 
-        public String getType() {
-            return type;
-        }
-
         public String getColor() {
             return color;
         }
@@ -34,16 +24,12 @@ public class FurnitureShop {
         public String getMaterial() {
             return material;
         }
-        public String toString ()
-        {
-            return type + " ,color " + color + " , material " + material;
-        }
 
-        public FurnitureShop()
-        {
-            type = "desk";
-            color = "Brown";
-            material = "wood";
+        @Override
+        public String toString() {
+            return "FurnitureShop{" +
+                    "color='" + color + '\'' +
+                    ", material='" + material + '\'' +
+                    '}';
         }
-
 }

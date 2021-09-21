@@ -1,16 +1,12 @@
 package ru.mirea.task5;
 
 public class Dog {
-    private String name;
-    private String color;
-    private String type;
-    private int year;
-    public Dog (String name, String color, String type, int year)
+    protected String name;
+    protected String color;
+    public Dog (String name, String color)
     {
         this.name = name;
         this.color = color;
-        this.type = type;
-        this.year = year;
     }
 
     public void setName(String name) {
@@ -21,13 +17,6 @@ public class Dog {
         this.color = color;
     }
 
-    public void setMaterial(String type) {
-        this.type = type;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
 
     public String getName() {
         return name;
@@ -37,24 +26,11 @@ public class Dog {
         return color;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public String toString ()
-    {
-        return name + " ,color " + color + " , type " + type + " ,years " + year;
-    }
-
-    public Dog()
-    {
-        name = "Bob";
-        color = "Brown";
-        type = "Berger";
-        year = 3;
+    @Override
+    public String toString() {
+        return "Dog{" +
+                "name='" + name + '\'' +
+                ", color='" + color + '\'' +
+                '}';
     }
 }

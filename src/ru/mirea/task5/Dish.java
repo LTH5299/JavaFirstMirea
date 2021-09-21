@@ -1,18 +1,12 @@
 package ru.mirea.task5;
 
 public class Dish {
-    private String name;
-    private String color;
-    private String material;
-    public Dish (String name, String color, String material)
+    protected String color;
+    protected String material;
+    public Dish ( String color, String material)
     {
-        this.name = name;
         this.color = color;
         this.material = material;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public void setColor(String color) {
@@ -23,10 +17,6 @@ public class Dish {
         this.material = material;
     }
 
-    public String getName() {
-        return name;
-    }
-
     public String getColor() {
         return color;
     }
@@ -34,15 +24,12 @@ public class Dish {
     public String getMaterial() {
         return material;
     }
-    public String toString ()
-    {
-        return name + " ,color " + color + " , material " + material;
-    }
 
-    public Dish()
-    {
-        name = "Steak";
-        color = "Brown";
-        material = "Beef";
+    @Override
+    public String toString() {
+        return "Dish{" +
+                "color='" + color + '\'' +
+                ", material='" + material + '\'' +
+                '}';
     }
 }
