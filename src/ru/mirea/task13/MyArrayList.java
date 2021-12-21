@@ -1,8 +1,11 @@
 package ru.mirea.task13;
 
-public class MyArrayList {
-    private int INIT_SIZE;
+public class MyArrayList<T> {
+    private int INIT_SIZE = 10;
     private int pointer = 0;
+
+    MyArrayList() {
+    }
 
     MyArrayList(int size) {
         this.INIT_SIZE = size;
@@ -10,20 +13,24 @@ public class MyArrayList {
 
     private Object[] array = new Object[INIT_SIZE];
 
-    public void add(int index, Object obj) {
+    public void add(int index, T obj) {
         if (index > array.length) {
             System.out.println("Wrong index");
             System.exit(0);
         }
         Object[] tmp = new Object[array.length + 1];
-        if (index >= 0) System.arraycopy(array, 0, tmp, 0, index);
+        for (int i = 0; i < index; ++i) {
+            tmp[i] = array[i];
+        }
         tmp[index] = obj;
-        if (array.length - index >= 0) System.arraycopy(array, index, tmp, index + 1, array.length - index);
+        for (int i = index; i < array.length; ++i) {
+            tmp[i + 1] = array[i];
+        }
         array = tmp;
         pointer++;
     }
 
-    public void add(Object obj) {
+    public void add(T obj) {
         if (pointer == array.length - 1) {
             resize(array.length * 2);
         }
@@ -31,17 +38,18 @@ public class MyArrayList {
     }
 
     public void remove(int index) {
-        if (pointer - index >= 0) System.arraycopy(array, index + 1, array, index, pointer - index);
+        for (int i = index; i < pointer; ++i) {
+            array[i] = array[i + 1];
+        }
         array[pointer] = null;
         pointer--;
     }
 
-    public boolean contains(Object obj) {
-        for (int i=0; i<pointer; ++i) {
-            if (array[i] != obj) {
-                continue;
+    public boolean contains(T obj) {
+        for (int i = 0; i < pointer; ++i) {
+            if (array[i] == obj) {
+                return true;
             }
-            return true;
         }
         return false;
     }
@@ -52,7 +60,7 @@ public class MyArrayList {
         array = newArr;
     }
 
-    public void set(int index, Object obj) {
+    public void set(int index, T obj) {
         if (index > pointer) {
             System.out.print("Index out of bound");
             System.exit(0);
@@ -60,8 +68,8 @@ public class MyArrayList {
         array[index] = obj;
     }
 
-    public Object get(int index) {
-        return array[index];
+    public T get(int index) {
+        return (T) array[index];
     }
 
     public int size() {

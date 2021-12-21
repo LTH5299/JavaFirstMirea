@@ -1,10 +1,6 @@
 package ru.mirea.task8;
+import javax.swing.*;
 import java.awt.*;
-import javax.swing.GroupLayout;
-import javax.swing.ImageIcon;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
 
 
 public class TestPicture extends JFrame {
@@ -28,7 +24,7 @@ public class TestPicture extends JFrame {
 
     private ImageIcon loadImage() {
 
-        return new ImageIcon("D:\\Java\\acm.png");
+        return new ImageIcon("D:\\Java\\ACmilan.png");
     }
 
     private void createLayout(JComponent... arg) {

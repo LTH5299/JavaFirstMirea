@@ -34,27 +34,12 @@ public class TestShape {
         System.out.println(s3.getColor());
         System.out.println(s3.getLength());
 
-        System.out.println(s3);
-        System.out.println(s3.getArea());
-        System.out.println(s3.getColor());
-        System.out.println(s3.getLength());
 
         Square s4 = new Square(6.6);
         System.out.println(s4);
         System.out.println(s4.getArea());
         System.out.println(s4.getColor());
         System.out.println(s4.getSide());
-
-        System.out.println(s4);
-        System.out.println(s4.getArea());
-        System.out.println(s4.getColor());
-        System.out.println(s4.getLength());
-
-        System.out.println(s4);
-        System.out.println(s4.getArea());
-        System.out.println(s4.getColor());
-        System.out.println(s4.getSide());
-        System.out.println(s4.getLength());
     }
 
     public static void testCircle() {
